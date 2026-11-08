@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: HunTank
+## Notes: Your threat percentage on each enemy nameplate. Text only, no bars.
+## Author: iamangus
+## Version: 0.1.0
+## SavedVariables: HunTankDB
+## X-Category: Combat
+## IconTexture: Interface\Icons\Ability_Hunter_BeastCall
+
+Core.lua
+Options.lua
