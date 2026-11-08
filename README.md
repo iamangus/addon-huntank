@@ -63,6 +63,10 @@ Those decisions stay with you. This addon only puts the number where you need it
 - In dungeons and raids the client may hide threat values for some units; those nameplates will stay blank.
 - It does not replace or restyle Blizzard's nameplates. It only adds a font string to each plate.
 
+## Changelog
+
+- **0.1.1** — re-anchor the text to Blizzard's health bar once the nameplate exposes it, so it lines up with the bar instead of the whole plate.
+
 ## Development
 
 Package a release:

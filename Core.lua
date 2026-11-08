@@ -72,12 +72,20 @@ local function blank(holder)
 	end
 end
 
+local function healthBarFor(plate)
+	local unitFrame = plate.UnitFrame
+	if not unitFrame then return nil end
+	return unitFrame.healthBar
+		or (unitFrame.HealthBarsContainer and unitFrame.HealthBarsContainer.healthBar)
+end
+
 local function layout(holder)
 	local db = config()
 	local text = holder.text
 	local plate = holder.plate
-	local healthBar = plate.UnitFrame and plate.UnitFrame.healthBar
+	local healthBar = healthBarFor(plate)
 	local anchor = healthBar or plate
+	holder.healthBar = healthBar
 
 	text:ClearAllPoints()
 	if db.position == "left" then
@@ -117,6 +125,11 @@ local function updatePlate(plate, unit)
 	local holder = holderFor(plate)
 	holder.unit = unit
 	byUnit[unit] = holder
+
+	local healthBar = healthBarFor(plate)
+	if holder.healthBar ~= healthBar then
+		layout(holder)
+	end
 
 	local db = config()
 	if not db.enabled then
